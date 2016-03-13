@@ -1,24 +1,39 @@
-#include <bits/stdc++.h>
+#include "stdafx.h"
+#include <iostream>
+#include <queue>
 
 using namespace std;
 
-main() {
+void main() {
 
-    queue<int> deck;
+	int n;
 
-    int n;
+	while (cin >> n) {
 
-    while (cin >> n) {
+		if (!n) break;
 
-        for (int i=n; i>0; i--) {
-            deck.push(i);
-        }
+		queue<int> deck, lixo;
 
-        while (deck.size() > 2) {
-            deck.pop();
-            deck.
-        }
-    }
+		for (int i = 1; i <= n; i++) 
+			deck.push(i);
 
+		while (deck.size() > 1 ) {
+			lixo.push(deck.front());
+			deck.pop();
+			deck.push(deck.front());
+			deck.pop();
+		}
+
+		cout << "Discarded cards: ";
+		while (!lixo.empty()) {
+			if(lixo.size() > 1)
+				cout << lixo.front() << ", ";
+			else 
+				cout << lixo.front() << endl;
+			lixo.pop();
+		}
+
+		cout << "Remaining card: " << deck.front() << endl;
+	}
 
 }
