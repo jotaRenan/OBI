@@ -18,7 +18,7 @@ main() {
         diamonds.push(cadeia.at(j));
       }
       else if (cadeia.at(j) == '>') {
-        if (diamonds.top() == '<') {
+        if (!diamonds.empty()) {
           diamonds.pop();
           resp++;
         }
